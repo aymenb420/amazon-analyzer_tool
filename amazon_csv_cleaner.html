@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Analyzer - Find Winning Designs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 T-Shirt Analyzer</h1>
+            <p>Upload your CSV data to discover winning t-shirt designs and analyze top-performing niches</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📊</div>
+                <div class="upload-text">Drop your CSV file here or click to browse</div>
+                <div class="upload-subtext">Supports CSV files with t-shirt data including titles, BSR, ratings, and reviews</div>
+                <input type="file" id="fileInput" class="file-input" accept=".csv" />
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing your t-shirt data...</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalItems">0</div>
+                    <div class="stat-label">Total Items</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="winningItems">0</div>
+                    <div class="stat-label">Winning Ideas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="avgScore">0</div>
+                    <div class="stat-label">Avg Score</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="filteredItems">0</div>
+                    <div class="stat-label">Filtered Out</div>
+                </div>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="card-header">
+                        <h3>🏆 Top Performing Niches</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="topNiches"></div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <div class="card-header">
+                        <h3>⭐ Top Winning Ideas</h3>
+                    </div>
+                    <div class="card-content">
+                        <div id="topIdeas"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-card full-width">
+                <div class="card-header">
+                    <h3>📈 Niche Analysis</h3>
+                </div>
+                <div class="card-content">
+                    <div id="nicheAnalysis"></div>
+                </div>
+            </div>
+
+            <div class="result-card full-width">
+                <div class="card-header">
+                    <h3>💡 Recommendations</h3>
+                </div>
+                <div class="card-content">
+                    <div id="recommendations"></div>
+                </div>
+            </div>
+
+            <div class="download-section">
+                <button class="btn" id="downloadBtn">📥 Download Results CSV</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
